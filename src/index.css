@@ -1,10 +1,10 @@
 :root {
-  --primary: #4361ee;
-  --secondary: #3f37c9;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --gray: #6c757d;
-  --light-gray: #e9ecef;
+  --primary: #313ea0;
+  --secondary: #2b2a72b4;
+  --light: #ffffff;
+  --dark: #1f1f1f;
+  --gray: #51606d;
+  --light-gray: #dcdcdc;
 }
 
 * {
@@ -17,7 +17,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--dark);
-  background-color: #f5f7fb;
+  background-color: #f0f0f0;
 }
 
 .navbar {
