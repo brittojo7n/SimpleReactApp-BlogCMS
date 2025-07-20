@@ -7,8 +7,7 @@ import PostDetailPage from './pages/PostDetail';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
-  const [posts, setPosts] = useLocalStorage('blogPosts', [
-  ]);
+  const [posts, setPosts] = useLocalStorage('blogPosts', []);
 
   const addPost = useCallback((newPost) => {
     setPosts(prevPosts => [newPost, ...prevPosts]);
