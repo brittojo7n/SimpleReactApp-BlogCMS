@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HomePage from './pages/Home';
-import CreatePostPage from './pages/CreatePost';
-import PostDetailPage from './pages/PostDetail';
+import Home from './pages/Home';
+import CreatePost from './pages/CreatePost';
+import PostDetail from './pages/PostDetail';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
@@ -25,15 +25,15 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={<HomePage posts={posts} deletePost={deletePost} />} 
+              element={<Home posts={posts} deletePost={deletePost} />} 
             />
             <Route 
               path="/create" 
-              element={<CreatePostPage addPost={addPost} />} 
+              element={<CreatePost addPost={addPost} />} 
             />
             <Route 
               path="/blog/:id" 
-              element={<PostDetailPage posts={posts} deletePost={deletePost} />} 
+              element={<PostDetail posts={posts} deletePost={deletePost} />} 
             />
           </Routes>
         </main>
