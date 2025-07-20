@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PostList from '../components/PostList';
 
 const Home = ({ posts, deletePost }) => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
+
+  useEffect(() => {
+    setFilteredPosts(posts);
+  }, [posts]);
   
   const handleTagClick = (tag) => {
     setFilteredPosts(posts.filter(post => post.tags.includes(tag)));

@@ -7,8 +7,10 @@ const PostDetail = ({ posts, deletePost }) => {
   const post = posts.find(p => p.id === id);
   
   const handleDelete = () => {
-    deletePost(id);
-    navigate('/');
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      deletePost(id);
+      navigate('/');
+    }
   };
   
   if (!post) {

@@ -5,6 +5,12 @@ const PostPreview = ({ post, onDelete }) => {
   const wordCount = post.content.split(/\s+/).filter(Boolean).length; // word count
   const formattedDate = new Date(post.date).toLocaleDateString(); // date formatting
 
+  const handleDelete = () => {
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      onDelete(post.id);
+    }
+  };
+
   return (
     <div className="post-preview">
       <div className="post-header">
@@ -12,7 +18,7 @@ const PostPreview = ({ post, onDelete }) => {
           <h3>{post.title}</h3>
         </Link>
         <button 
-          onClick={() => onDelete(post.id)}
+          onClick={handleDelete}
           className="delete-button"
         >
           Delete

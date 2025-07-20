@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './pages/Home';
@@ -7,23 +8,15 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
   const [posts, setPosts] = useLocalStorage('blogPosts', [
-    {
-      id: '1',
-      title: 'Welcome to Blog CMS Lite',
-      content: 'This is a simple blog CMS built with React. Start by creating your first post!',
-      tags: ['welcome', 'tutorial'],
-      date: new Date().toISOString(),
-      excerpt: 'This is a simple blog CMS built with React...'
-    }
   ]);
 
-  const addPost = (newPost) => {
-    setPosts([newPost, ...posts]);
-  };
+  const addPost = useCallback((newPost) => {
+    setPosts(prevPosts => [newPost, ...prevPosts]);
+  }, [setPosts]);
 
-  const deletePost = (postId) => {
-    setPosts(posts.filter(post => post.id !== postId));
-  };
+  const deletePost = useCallback((postId) => {
+    setPosts(prevPosts => prevPosts.filter(post => post.id !== postId));
+  }, [setPosts]); 
 
   return (
     <BrowserRouter>
