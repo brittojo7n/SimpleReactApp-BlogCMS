@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PostPreview from './PostPreview';
 
-const PostList = ({ posts, onTagClick }) => {
+const PostList = ({ posts, onTagClick, deletePost }) => {
   const [searchTerm, setSearchTerm] = useState('');
   
   const filteredPosts = posts.filter(post => {
@@ -39,7 +39,11 @@ const PostList = ({ posts, onTagClick }) => {
       
       <div className="posts-grid">
         {filteredPosts.map(post => (
-          <PostPreview key={post.id} post={post} />
+          <PostPreview 
+            key={post.id} 
+            post={post} 
+            onDelete={deletePost}
+          />
         ))}
       </div>
     </div>

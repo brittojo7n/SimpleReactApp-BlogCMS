@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PostList from '../components/PostList';
 
-const Home = ({ posts }) => {
+const Home = ({ posts, deletePost }) => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   
   const handleTagClick = (tag) => {
@@ -18,7 +18,8 @@ const Home = ({ posts }) => {
       
       <PostList 
         posts={filteredPosts} 
-        onTagClick={handleTagClick} 
+        onTagClick={handleTagClick}
+        deletePost={deletePost}
       />
       
       <button onClick={clearFilters} className="clear-filters">

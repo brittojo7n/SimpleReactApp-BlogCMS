@@ -1,9 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
-const PostDetail = ({ posts }) => {
+const PostDetail = ({ posts, deletePost }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const post = posts.find(p => p.id === id);
+  
+  const handleDelete = () => {
+    deletePost(id);
+    navigate('/');
+  };
   
   if (!post) {
     return <div className="post-detail">Post not found</div>;
@@ -14,7 +20,15 @@ const PostDetail = ({ posts }) => {
   
   return (
     <div className="post-detail">
-      <h1>{post.title}</h1>
+      <div className="post-header">
+        <h1>{post.title}</h1>
+        <button 
+          onClick={handleDelete}
+          className="delete-button"
+        >
+          Delete Post
+        </button>
+      </div>
       <p className="post-meta">
         Published on {formattedDate}
       </p>

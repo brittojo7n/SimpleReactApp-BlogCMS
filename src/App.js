@@ -21,16 +21,19 @@ function App() {
     setPosts([newPost, ...posts]);
   };
 
+  const deletePost = (postId) => {
+    setPosts(posts.filter(post => post.id !== postId));
+  };
+
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        
         <main className="main-content">
           <Routes>
             <Route 
               path="/" 
-              element={<HomePage posts={posts} />} 
+              element={<HomePage posts={posts} deletePost={deletePost} />} 
             />
             <Route 
               path="/create" 
@@ -38,7 +41,7 @@ function App() {
             />
             <Route 
               path="/blog/:id" 
-              element={<PostDetailPage posts={posts} />} 
+              element={<PostDetailPage posts={posts} deletePost={deletePost} />} 
             />
           </Routes>
         </main>

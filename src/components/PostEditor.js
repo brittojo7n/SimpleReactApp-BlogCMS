@@ -51,7 +51,7 @@ const PostEditor = ({ post, onSave }) => {
         
         <div className="editor-columns">
           <div className="editor-column">
-            <label>Content (Markdown)</label>
+            <label style={{display: 'block'}}>Content (Markdown)</label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
