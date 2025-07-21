@@ -52,6 +52,3 @@ A lightweight blog content management system built with React Hooks and Markdown
 - LocalStorage persistence
 - Component composition
 
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
